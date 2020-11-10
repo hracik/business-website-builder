@@ -1,4 +1,4 @@
-#Business web builder
+# Business web builder
 
 Create simple business website with admin area and couple of settings.
 
@@ -11,7 +11,7 @@ Possibility to use:
 ## Installation
 Install with:
 ```
-composer require hracik/company-web
+composer require hracik/business-website-builder
 composer install
 ```
 
@@ -31,4 +31,4 @@ symfony app:create-user
 
 
 ***
-Now you can go to the web and create your business web.
+Now you can go to URL where you installed the code and build your business website.
