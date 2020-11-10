@@ -91,7 +91,7 @@ class Business implements TimestampableInterface
 	private $logo;
 
 	/**
-	 * @Assert\Image(detectCorrupted=true)
+	 * @Assert\Image(mimeTypes={"image/jpeg", "image/png"}, detectCorrupted=true)
 	 * @Vich\UploadableField(mapping="business", fileNameProperty="logo")
 	 * @var File
 	 */
@@ -103,7 +103,7 @@ class Business implements TimestampableInterface
 	private $icon;
 
 	/**
-	 * @Assert\Image(allowLandscape=false, allowPortrait=false, detectCorrupted=true)
+	 * @Assert\Image(mimeTypes={"image/jpeg", "image/png"}, allowLandscape=false, allowPortrait=false, detectCorrupted=true)
 	 * @Vich\UploadableField(mapping="business", fileNameProperty="icon")
 	 * @var File
 	 */

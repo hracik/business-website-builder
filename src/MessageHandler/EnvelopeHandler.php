@@ -26,10 +26,12 @@ class EnvelopeHandler implements MessageHandlerInterface
 	 */
 	public function __invoke(Envelope $envelope)
 	{
-		$from = new Address($envelope->getEmail());
+		$replyTo = new Address($envelope->getEmail());
+		$from = new Address($this->settings['mailerSender']);
 		$to = new Address($this->settings['mailerRecipient']);
 
 		$message = (new TemplatedEmail())
+			->replyTo($replyTo)
 			->from($from)
 			->to($to)
 			->subject('New message')

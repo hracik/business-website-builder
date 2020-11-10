@@ -5,36 +5,43 @@ liip_imagine:
     filter_sets:
         # name our filter set
         easyadmin:
+            quality: 100
             filters:
                 thumbnail:
                     size: [ 600, 300 ]
                     mode: inset
         logo:
+            quality: 100
             filters:
                 thumbnail:
                     size: [600, 600]
                     mode: inset
         favicon16:
+            quality: 100
             filters:
                 thumbnail:
                     size: [16, 16]
                     mode: outbound
         favicon32:
+            quality: 100
             filters:
                 thumbnail:
                     size: [ 32, 32 ]
                     mode: outbound
         favicon48:
+            quality: 100
             filters:
                 thumbnail:
                     size: [ 48, 48 ]
                     mode: outbound
         mstile:
+            quality: 100
             filters:
                 thumbnail:
                     size: [ 150, 150 ]
                     mode: outbound
         apple_touch:
+            quality: 100
             filters:
                 thumbnail:
                     size: [ 180, 180 ]

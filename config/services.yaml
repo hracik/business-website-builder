@@ -12,6 +12,7 @@ parameters:
         titleSeparator: '%env(SETTING_TITLE_SEPARATOR)%'
         contactForm: '%env(bool:SETTING_CONTACT_FORM)%'
         mailerRecipient: '%env(SETTING_MAILER_RECIPIENT)%'
+        mailerSender: '%env(SETTING_MAILER_SENDER)%'
         emailAsImage: '%env(bool:SETTING_EMAIL_AS_IMAGE)%'
         showOnlyLogo: '%env(bool:SETTING_SHOW_ONLY_LOGO)%'
         language: '%env(SETTING_LANGUAGE)%'
