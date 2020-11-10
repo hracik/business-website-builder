@@ -1,0 +1,54 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    app_github: https://github.com/hracik/business-website-builder
+    app_creator: Hracik
+    settings:
+        backgroundColor: '%env(SETTING_BACKGROUND_COLOR)%'
+        title: '%env(SETTING_TITLE)%'
+        titleSeparator: '%env(SETTING_TITLE_SEPARATOR)%'
+        contactForm: '%env(bool:SETTING_CONTACT_FORM)%'
+        mailerRecipient: '%env(SETTING_MAILER_RECIPIENT)%'
+        emailAsImage: '%env(bool:SETTING_EMAIL_AS_IMAGE)%'
+        showOnlyLogo: '%env(bool:SETTING_SHOW_ONLY_LOGO)%'
+        language: '%env(SETTING_LANGUAGE)%'
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            array $settings: '%settings%'
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+            - '../src/Tests/'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller/'
+        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+    Twilio\Rest\Client:
+        arguments: ['%env(TWILIO_SID)%', '%env(TWILIO_TOKEN)%']
+
+    #DOCTRINE LISTENERS/SUBSCRIBERS
+    App\EventSubscriber\TimestampableSubscriber:
+        tags:
+            - { name: doctrine.event_subscriber }
+    App\EventListener\EnvelopeListener:
+        tags:
+            - { name: doctrine.orm.entity_listener, entity: App\Entity\Envelope, event: postPersist, lazy: true }

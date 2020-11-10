@@ -1,0 +1,11 @@
+validators:
+  address_postal_code:
+    invalid: 'This value is not valid postal code. For {{ country }} it has to follow the format {{ format }} - "#" replace by number "0-9", "@" replace by letter "a-zA-Z".'
+  crypto_currency_account:
+    invalid_address: 'This value is not valid {{ currency }} address.'
+  phone_number:
+    invalid: 'This value is not valid phone number.'
+    unauthorized: 'Request unauthorized.'
+  VAT:
+    invalid: 'This is not a valid VAT identification number.'
+

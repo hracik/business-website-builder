@@ -1,0 +1,49 @@
+{% apply spaceless %}
+    <html lang="{{ settings.language }}">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <style>
+            /** Bootstrap4 changes */
+            /*bigger padding on all bootstrap4 badges */
+            .badge {
+                padding: 0.5em .75em !important;
+            }
+            .form-error-icon{
+                margin-right: .25rem !important;
+            }
+        </style>
+        <script src="https://kit.fontawesome.com/9a0ca2571c.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        {% block head %}{% endblock %}
+    </head>
+    <body style="background-color: {{ settings.backgroundColor }}">
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <p><span class="badge badge-primary"><i class="fas fa-lightbulb mr-1"></i>Tip</span> Use <a class="text-info" target="_blank" href="https://www.namecheap.com/">namecheap.com</a> to buy your domain really cheap. Looking for simple logo? Try <a class="text-info" target="_blank" href="https://www.namecheap.com/logo-maker/">free logo maker from Namecheap</a>!</p>
+            <hr class="bg-secondary">
+            <div class="text-center">
+                {% if business is defined %}
+                    <p class="my-1">Copyright &copy; {{ business.incorporatedAt|date('Y') }}{% if "now"|date('Y') > business.incorporatedAt|date('Y') %} - {{ "now"|date("Y") }}{% endif %} {{ business.name }}</p>
+                {% endif %}
+                <p class="my-1">
+                    <a class="text-info small" href="{{ app_github }}" target="_blank">Create simple information website for your business</a>
+                    <br>
+                    <small class="text-secondary">Created by {{ app_creator }}</small>
+                </p>
+            </div>
+        </div>
+    </footer>
+    {% include '_privacy.html.twig' %}
+    {% include '_tos.hmtl.twig' %}
+    </body>
+    </html>
+{% endapply %}

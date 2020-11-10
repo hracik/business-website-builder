@@ -1,0 +1,50 @@
+label:
+  accounts: Accounts
+  account_provider: Account provider
+  account_providers: Account providers
+  URL: URL
+  business: Business
+  envelope: Envelope
+  envelopes: Envelopes
+  user: User
+  users: Users
+  bank_account: Bank account
+  bank_accounts: Bank accounts
+  crypto_currency_account: Crypto-currency account
+  crypto_currency_accounts: Crypto-currency accounts
+  service_account: Service account
+  service_accounts: Service accounts
+  registry_URL: Registry URL
+  id: ID
+  active: Active
+  public: Public
+  email: Email
+  message: Message
+  name: Name
+  logo: Logo
+  icon: Icon
+  created_at: Created at
+  updated_at: Updated at
+  incorporated_at: Incorporated at
+  description: Description
+  identification_number: Identification number
+  VAT: VAT
+  address: Address
+  address_group:
+    street: Street
+    postal_code: Postal code
+    country: Country
+    city: City
+  phone_number: Phone number
+  phone_number_group:
+    number: Number
+    country: Country
+  currency: Currency
+  currencies: Currencies
+  identifier: Identifier
+  note: Note
+  internal_note: Internal note
+  bank_name: Bank name
+  IBAN: IBAN
+  BIC: BIC
+  reference: Reference

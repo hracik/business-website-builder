@@ -1,0 +1,6 @@
+framework:
+    default_locale: '%env(SETTING_LANGUAGE)%'
+    translator:
+        default_path: '%kernel.project_dir%/translations'
+        fallbacks:
+            - '%env(SETTING_LANGUAGE_FALLBACK)%'

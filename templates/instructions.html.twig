@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Instructions{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5 font-weight-bold">Instructions</h1>
+    <div class="mt-3 card">
+        <div class="card-body">
+            <p>Just a few steps before your website will be ready:</p>
+            <ol>
+                <li>Create file <code>.env.local</code>. Copy content from <code>.env.example</code> - use your own secrets and settings.</li>
+                <li>Make user by running command: <code>php bin/console app:create-user</code> or <code>symfony app:create-user</code>.</li>
+                <li><a href="{{ path('app_login') }}">Sign in</a> and create the business.</li>
+            </ol>
+            <small>* you can make as many users as you might need</small>
+            <hr>
+            <p class="mb-0">Full code available to inspection at <a target="_blank" href="{{ app_github }}">{{ app_github }}</a>.</p>
+        </div>
+    </div>
+{% endblock %}
