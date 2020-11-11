@@ -26,7 +26,7 @@
 {% block content %}
     <div class="text-center mt-4">
         {% if business.logo is not null %}
-            <img src="{{ vich_uploader_asset(business,'logoFile')|imagine_filter('logo') }}" class="text-center" alt="Logo {{ business.name }}">
+            <img src="{{ vich_uploader_asset(business,'logoFile')|imagine_filter('logo') }}" class="img-fluid text-center" alt="Logo {{ business.name }}">
             {% if settings.showOnlyLogo is same as(false) %}
                 <h1 class="text-center font-weight-bold">{{ business.name }}</h1>
             {% endif %}
