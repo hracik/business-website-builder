@@ -31,7 +31,6 @@ class BusinessRepository extends ServiceEntityRepository
 			->leftJoin('business.bankAccounts', 'bank_accounts')
 			->leftJoin('business.cryptoCurrencyAccounts', 'crypto_currency_accounts')
 			->leftJoin('business.serviceAccounts', 'service_accounts')
-			->setMaxResults(1)
 			->getQuery()
 			->getOneOrNullResult()
 			;
