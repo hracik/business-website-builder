@@ -24,14 +24,18 @@
 {% endblock %}
 
 {% block content %}
-    <div class="text-center mt-4">
+    <div class="mt-4 text-center">
         {% if business.logo is not null %}
-            <img src="{{ vich_uploader_asset(business,'logoFile')|imagine_filter('logo') }}" class="img-fluid text-center" alt="Logo {{ business.name }}">
+            <div class="row justify-content-center">
+                <div class="col-10 col-md-8">
+                    <img src="{{ vich_uploader_asset(business,'logoFile')|imagine_filter('logo') }}" class="img-fluid text-center" alt="Logo {{ business.name }}">
+                </div>
+            </div>
             {% if settings.showOnlyLogo is same as(false) %}
-                <h1 class="text-center font-weight-bold">{{ business.name }}</h1>
+                <h1 class="font-weight-bold">{{ business.name }}</h1>
             {% endif %}
         {% else %}
-            <h1 class="text-center font-weight-bold">{{ business.name }}</h1>
+            <h1 class="font-weight-bold">{{ business.name }}</h1>
         {% endif %}
     </div>
     {% if business.description is not null %}
